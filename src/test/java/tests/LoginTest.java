@@ -1,7 +1,7 @@
 package tests;
 
 import base.BaseTest;
-import base.BaseTest;
+
 import com.google.gson.JsonObject;
 import org.testng.Assert;
 import org.testng.annotations.Test;

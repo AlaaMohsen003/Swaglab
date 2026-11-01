@@ -10,53 +10,71 @@ import utils.DataDriven;
 
 public class InventoryTest extends BaseTest{
 
+
     @Test
     public void verifyInventoryPageElementsAfterLogin() {
 
-        JsonObject data = DataDriven.jsonReader();
 
-        JsonObject valid =
-                data.getAsJsonObject("validLogin");
 
-        String username =
-                valid.get("username").getAsString();
+            JsonObject data = DataDriven.jsonReader();
 
-        String password =
-                valid.get("password").getAsString();
+            JsonObject valid =
+                    data.getAsJsonObject("validLogin");
 
-        LoginPage loginPage = new LoginPage(driver);
+            String username =
+                    valid.get("username").getAsString();
 
-        loginPage.login(username, password);
+            String password =
+                    valid.get("password").getAsString();
 
-        InventoryPage inventoryPage =
-                new InventoryPage(driver);
+            LoginPage loginPage = new LoginPage(driver);
 
-        // Verify URL
-        Assert.assertTrue(
-                driver.getCurrentUrl().contains("/inventory.html")
-        );
+            loginPage.login(username, password);
 
-        // Verify browser title
-        Assert.assertEquals(
-                inventoryPage.getPageTitle(),
-                "Swag Labs"
-        );
+            InventoryPage inventoryPage =
+                    new InventoryPage(driver);
 
-        // Verify heading
-        Assert.assertTrue(
-                inventoryPage.isHeadingDisplayed()
-        );
+            // Verify URL
+            Assert.assertTrue(
+                    driver.getCurrentUrl().contains("/inventory.html")
+            );
 
-        // Verify cart icon
-        Assert.assertTrue(
-                inventoryPage.isCartDisplayed()
-        );
+            // Verify browser title
+            Assert.assertEquals(
+                    inventoryPage.getPageTitle(),
+                    "Swag Labs"
+            );
 
-        // Verify product count
-        Assert.assertEquals(
-                inventoryPage.getProductsCount(),
-                6
-        );
+            // Verify heading
+            Assert.assertTrue(
+                    inventoryPage.isHeadingDisplayed()
+            );
+
+            // Verify cart icon
+            Assert.assertTrue(
+                    inventoryPage.isCartDisplayed()
+            );
+
+            // Verify product count
+            Assert.assertEquals(
+                    inventoryPage.getProductsCount(),
+                    6
+            );
+        }
     }
-}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 

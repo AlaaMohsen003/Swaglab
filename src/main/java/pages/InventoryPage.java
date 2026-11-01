@@ -34,4 +34,3 @@ public class InventoryPage {
         return driver.findElements(products).size();
     }
 }
-
